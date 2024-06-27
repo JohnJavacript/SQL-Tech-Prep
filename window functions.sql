@@ -18,3 +18,14 @@ FROM
     RANK() OVER (PARTITION BY DepartmentName ORDER BY BaseRate DESC) AS Rank
 FROM 
     [AdventureWorksDW2022].[dbo].[DimEmployee];
+
+    -- Example 3  DENSE RANK()
+    	SELECT 
+    EmployeeKey,
+    FirstName,
+    LastName,
+    DepartmentName,
+    BaseRate,
+    DENSE_RANK() OVER (PARTITION BY DepartmentName ORDER BY BaseRate DESC) AS DenseRank
+FROM 
+    [AdventureWorksDW2022].[dbo].[DimEmployee];
